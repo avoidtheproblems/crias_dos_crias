@@ -1,0 +1,1995 @@
+:: StoryTitle
+CRIAS DOS CRIAS 1
+
+
+:: StoryData
+{
+  "ifid": "4a6ad61c-30c5-4b42-8849-99543404fefb",
+  "format": "SugarCube",
+  "format-version": "2.37.0",
+  "start": "MENU INICIAR",
+  "zoom": 1
+}
+
+
+:: 2 ANOS DE CADEIA {"position":"3275,550","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>
+PARABENS VOCÊ PEGOU 2 ANOS DE CADEIA POR MAIS ALGUNS AGRAVANTES QUE NINGUEM SABE QUAIS SAO. BOA ESTADIA LA!
+
+[[VOLTAR PARA O INICIO|MENU INICIAR]]
+
+</p>
+</div>
+</body>
+
+
+:: ACEITAR {"position":"625,825","size":"100,100"}
+<<set $karma -= 1>>
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>VOCÊ SE SENTE CAPAZ DE TUDO AGORA
+
+EU SOU FODA!
+VOCÊ PERCEBE UMA BRIGA SE INICIANDO.
+
+[[INTERVIR]]
+[[NÃO INTERVIR|INTERVIR]]
+
+</p>
+</div>
+</body>
+
+
+:: ACORDA {"position":"1100,700","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>
+
+SÃO 6H DA MANHÃ, VOCÊ ACORDA NUMA RESSACA IMENSA E COM MUITAS DORES.
+VOCÊ TEM DUAS HORAS PARA CHEGAR NO SEU TRABALHO, ESTANDO LONGE DE CASA E COM APENAS 5 REAIS NO BOLSO
+
+PELO HORÁRIO, VOCÊ JÁ PERDEU O PRIMEIRO ÔNIBUS QUE PASSA, MAS AINDA PODE [[TENTAR PEGAR O PRÓXIMO|TENTAR PEGAR UM ÔNIBUS]]
+[[JÁ SEI QUE NÃO VAI DAR TEMPO MESMO|SEGUIR PARA CASA]]
+
+</p>
+</div>
+</body>
+
+
+:: ARCO DA PRISÃO {"position":"2300,25","size":"100,100"}
+<<set $karma -=1>>
+<div class="karma-status">
+<p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom"><p>
+CHEGANDO NA DELEGACIA, VOCÊ FICA FRENTE A FRENTE COM O DELEGADO DA POLÍCIA. PELA CARA DELE, PARECE QUE ELE NÃO TEVE UM DIA BOM E QUALQUER MOTIVO JÁ SERIA PLAUSÍVEL PARA ELE JOGAR UM QUALQUER ALI SOB CUSTÓDIA, SÓ DE SACANAGEM!
+<div id="dialogo">
+<div id="dialogo1">
+<<link "TENTAR FUGIR DALI JUNTO COM ALGUNS CARAS (SORTE)">>
+    <<set $roll to random(1, 5)>>
+    <<if $roll > 4>>
+        <<replace "#dialogo">> VOCÊ REPARAQUE OS POLICIAIS SE DISTRAEM E A PORTA FICA LIVRE. 
+        RAPIDAMENTE, VOCÊ CORRE PARA A PORTA!
+        ANTES DE SAIR, UM DOS POLICIAIS PERCEBE, AVISA PARA OS OUTROS E ELES VÃO ATRÁS DE VOCÊ.
+        [[FUGA|CAMINHO DE VOLTA PARA PRESO]] <</replace>>
+    <<else>>
+        <<set $karma -=1>>
+        <<replace "#karma-value">><<print $karma>><</replace>>
+        <<replace "#dialogo1">>
+        OS POLICIAIS NÃO TE DÃO BRECHA PARA FAZER ISSO. AGORA A VIGILÂNCIA É DOBRADA EM CIMA DE VOCÊ E A SUSPEITA AUMENTA.<</replace>>
+    <</if>>
+<</link>>
+</div>
+<div id="dialogo2">
+<<link "TENTAR PROVAR INOCÊNCIA PARA O DELEGADO (KARMA)">>
+    <<if $karma < -2>>
+    <<replace "#dialogo2">>
+        O DELEGADO NÃO ACREDITA NA SUA HISTÓRIA.<</replace>>
+    <<else>>
+    <<replace "#dialogo">>
+        O DELEGADO ENTENDE SEU LADO, PERCEBE QUE VOCÊ É A VÍTIMA E TE LIBERA.
+        VOCÊ AINDA TEM QUE VOLTAR PARA [[CASA|VOLTAR PRA CASA]]<</replace>>
+    <</if>>
+<</link>>
+</div>
+<div id="dialogo3">
+<<link "TENTAR COMPRAR O DELEGADO (SORTE)">>
+    <<set $roll to random(1, 5)>>
+    <<if $roll > 3>>
+    <<replace "#dialogo">>
+        O DELEGADO ACEITA O DINHEIRO E TE LIBERA NA RUA. 
+        VOCÊ AINDA TEM QUE VOLTAR PARA [[CASA|VOLTAR PRA CASA]]<</replace>>
+    <<else>>
+    <<replace"#dialogo">>
+        ELE TE PRENDE POR TENTATIVA DE SUBORNO.
+        É... APARENTEMENTE ELE JÁ IA TE SOLTAR DE QUALQUER JEITO, MAS VOCÊ ESCOLHEU A [[PIOR OPÇÃO|2 ANOS DE CADEIA]]<</replace>>
+    <</if>>
+<</link>>
+</div>
+</div>
+</p>
+</div>
+</body>
+
+
+
+:: ATACAR {"position":"600,1100","size":"100,100"}
+<<set $karma +=1>>
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+
+<body>
+<div class="bottom">
+<p>VOCÊ TACA SUA LATA DE CERVEJA NA CABEÇA
+
+[[CONTINUAR ALI|BRIGAR MAIS]]
+[[SAIR CORRENDO|RUAS ESCURAS]]
+
+</p>
+</div>
+</body>
+
+
+:: AVENIDA. {"position":"1700,400","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>
+<div id="dialogo1">
+<<link "FALAR PARA NÃO SEGUIR PELA AVENIDA">>
+<<replace "#dialogo1">>NÃO VÁ POR AQUI, O CAMINHO É MAIS LONGO! CONTINUE PELAS RUAS POR DENTRO DO BAIRRO!<</replace>>
+<<if $karma >= 4>>
+<<replace "#dialogo">>OK, VOU SEGUIR PELO SEU [[CAMINHO!|RUA DE CASA]]<</replace>>
+<<else>>
+<<replace "#dialogo">>NÃO! EU SEI O QUE EU ESTOU FAZENDO. RELAXA AI!
+[[FICAR EM SILENCIO|VIATURAS]]<</replace>>
+<</if>>
+<</link>>
+[[FICAR EM SILÊNCIO|VIATURAS]]
+</div>
+<div id="dialogo"></div>
+</p>
+</div>
+</body>
+
+
+
+
+:: BAILE {"position":"900,0","size":"100,100"}
+<<set $karma = 0>>
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="baile-image">
+<div class="bottom">
+<p>Você está em uma balada, se divertindo e tomando algumas bebidas. O ambiente está animado e as pessoas estão dançando ao som da música.
+[[IR EMBORA]]
+[[CONTINUAR BEBENDO|VOCÊ BEBE MAIS]]</p>
+</div>
+</div>
+</body>
+
+
+:: BEBEU MAIS {"position":"800,450","size":"100,100"}
+<<set $karma -=1>>
+<div class="bebermais-image"></div>
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+
+<body>
+<div class="bottom">
+<p> DEPOIS DE UMAS BOAS GOLADAS, VOCÊ COMEÇA A SE SENTIR IMPONENTE, DONO DO MUNDO! CAPAZ DE TUDO! TU É FODA! TU É O CARA!
+
+EU SOU FODA, EU SOU O CARA, PORRRAAAAAA!
+
+[[DANÇAR]]
+[[CONVERSAR COM ALGUÉM|CONVERSAR COM ALGUÉM MAL INTENCIONADO]]
+</p>
+</div>
+</body>
+
+
+:: BRIGAR MAIS {"position":"500,1225","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+
+<body>
+<div class="bottom">
+    <p>AGORA É VOCÊ E A SORTE! O KARMA TE AJUDARÁ A ROLAR MAIS DE UMA VEZ, PORÉM SACRIFICARÁ TODOS OS SEUS PONTOS.
+
+    <div id="dado">
+        <<link "TENTAR SOCAR">>
+            <<set $roll to random (1, 20)>>
+            <<replace "#dado">>
+                <<if $roll == 1>>
+                    Você executa o soco mais estranho performado na humanidade. Um dos caras te dá um mata-leão enquanto o outro soca sua barriga. Até que... [[o pior acontece...|MORTE]]
+                <<elseif $roll >= 2 && $roll <= 10>>
+                    Ele desvia e você leva um soco do outro cara, desmaiando em sequência!
+                    A confusão toma proporções enormes e acaba atraindo uma viatura. Como você é o único imbecil que tava lá desmaiado, eles te levaram preso sobre acusação de furto com depoimento dos dois caras que iam brigar entre si. 
+                    [[DELEGACIA|ARCO DA PRISÃO]]
+                <<else>>
+                    Você acerta o soco na cara de um deles! O cara fica atordoado! [[FUGIR DALI|RUAS ESCURAS]]
+                    <<set $karma += 1>>
+                    <<replace "#karma-value">><<print $karma>><</replace>>
+                    <<replace "#dado">>
+                        <div id="luta2">
+                            <<link "CONTINUAR A BRIGA">>
+                                <<set $karma -= 1>>
+                                <<replace "#karma-value">><<print $karma>><</replace>>
+                                <<replace "#luta2">>
+                                    <div id="dado1">
+                                        <<link "TENTAR CHUTAR">>
+                                            <<set $roll to random (1, 20)>>
+                                            <<replace "#dado1">>
+                                                <<if $roll > 5 && $roll < 17>>
+                                                    <<set $karma += 2>>
+                                                    <<replace "#karma-value">><<print $karma>><</replace>>
+                                                    Meu Deus! O lugar mais seguro no mundo é frente do seu chute! Essa aqui eu não ganho nunca! [[FUGIR DALI|RUAS ESCURAS]]
+                                                <<elseif $roll == 1>>
+                                                    Você executa o soco mais estranho performado na história da humanidade. Um dos caras te dá um mata-leão enquanto o outro soca sua barriga. Até que... [[o pior acontece...|MORTE]]
+                                                <<else>>
+                                                    Você acerta! De alguma forma o cara conseguiu tomar um chute de um bêbado! [[FUGIR DALI|RUAS ESCURAS]]
+                                                <</if>>
+                                            <</replace>>
+                                        <</link>>
+                                    </div>
+                                <</replace>>
+                            <</link>>
+                        </div>
+                    <</replace>>
+                <</if>>
+            <</replace>>
+        <</link>>
+    </div>
+
+    <div id="dado1">
+        <<link "TENTAR CHUTAR">>
+            <<set $roll to random (1, 20)>>
+            <<replace "#dado1">>
+                <<if $roll > 5 && $roll < 17>>
+                    <<set $karma += 2>>
+                    <<replace "#karma-value">><<print $karma>><</replace>>
+                    Meu Deus! O lugar mais seguro no mundo é frente do seu chute! Essa aqui eu não ganho nunca! [[FUGIR DALI|RUAS ESCURAS]]
+                <<elseif $roll == 1>>
+                    Você executa o soco mais estranho performado na história da humanidade. Um dos caras te dá um mata-leão enquanto o outro soca sua barriga. Até que... [[o pior acontece...|MORTE]]
+                <<else>>
+                    Você acerta! De alguma forma o cara conseguiu tomar um chute de um bêbado! [[FUGIR DALI|RUAS ESCURAS]]
+                <</if>>
+            <</replace>>
+        <</link>>
+    </div>
+    </p>
+</div>
+</body>
+
+
+:: CAMINHO DE VOLTA {"position":"1200,700","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>
+
+NO DESESPERO, VOCÊ DECIDE SEGUIR SEU CORAÇÃO PARA CONSEGUIR FUGIR!:
+
+<div id="dialogo">
+    <<link "DIREITA">>
+        <<replace "#dialogo">>
+            Você decidiu ir para a direita.
+            <div id="dialogo1">
+                <<link "DIREITA">>
+                    <<replace "#dialogo1">>
+                        <div id="dialogo2">
+                            <<link "DIREITA">>
+                                <<replace "#dialogo2">>
+                                    VOCÊ ENCONTRA O CAMINHO CERTO E CHEGA EM [[CASA|RUA DE CASA]] 
+                                <</replace>>
+                            <</link>>
+                        </div>
+                    <</replace>>
+                <</link>>
+                <<link "ESQUERDA">>
+                    <<replace "#dialogo1">>
+                        <div id="dialogo2">
+                            <<link "ESQUERDA">>
+                                <<replace "#dialogo2">>
+                                    <div id="dialogo3">
+                                        <<link "ESQUERDA">>
+                                            <<replace "#dialogo3">>
+                                                  Merda! Não é por aqui!
+                                              [[VOLTAR|CAMINHO DE VOLTA]]
+                                            <</replace>>
+                                        <</link>>
+                                        <<link "DIREITA">>
+                                            <<replace "#dialogo3">>
+                                                Não faço ideia aonde eu estou!
+                                                [[VOLTAR|CAMINHO DE VOLTA]]
+                                            <</replace>>
+                                        <</link>>
+                                    </div>
+                                <</replace>>
+                            <</link>>
+                            <<link "DIREITA">>
+                                <<replace "#dialogo2">>
+                                    <div id="dialogo3">
+                                        <<link "ESQUERDA">>
+                                            <<replace "#dialogo3">>
+                                                Não faço ideia aonde eu estou!
+                                                [[VOLTAR|CAMINHO DE VOLTA]]
+                                            <</replace>>
+                                        <</link>>
+                                        <<link "DIREITA">>
+                                            <<replace "#dialogo3">>
+                                                 Merda! Não é por aqui!
+                                              [[VOLTAR|CAMINHO DE VOLTA]]
+                                            <</replace>>
+                                        <</link>>
+                                    </div>
+                                <</replace>>
+                            <</link>>
+                        </div>
+                    <</replace>>
+                <</link>>
+            </div>
+        <</replace>>
+    <</link>>
+    <<link "ESQUERDA">>
+        <<replace "#dialogo">>
+            Você decidiu ir para a esquerda.
+            <div id="dialogo1">
+                <<link "ESQUERDA">>
+                    <<replace "#dialogo1">>
+                        <div id="dialogo2">
+                            <<link "ESQUERDA">>
+                                <<replace "#dialogo2">>
+                                    <div id="dialogo3">
+                                        <<link "ESQUERDA">>
+                                            <<replace "#dialogo3">>
+                                                  Merda! Não é por aqui!
+                                              [[VOLTAR|CAMINHO DE VOLTA]]
+                                            <</replace>>
+                                        <</link>>
+                                        <<link "DIREITA">>
+                                            <<replace "#dialogo3">>
+                                               Não faço ideia aonde eu estou!
+                                                [[VOLTAR|CAMINHO DE VOLTA]]
+                                            <</replace>>
+                                        <</link>>
+                                    </div>
+                                <</replace>>
+                            <</link>>
+                            <<link "DIREITA">>
+                                <<replace "#dialogo2">>
+                                    <div id="dialogo3">
+                                        <<link "ESQUERDA">>
+                                            <<replace "#dialogo3">>
+                                                   Não faço ideia aonde eu estou!
+                                                [[VOLTAR|CAMINHO DE VOLTA]]
+                                            <</replace>>
+                                        <</link>>
+                                        <<link "DIREITA">>
+                                            <<replace "#dialogo3">>
+                                                  Merda! Não é por aqui!
+                                              [[VOLTAR|CAMINHO DE VOLTA]]
+                                            <</replace>>
+                                        <</link>>
+                                    </div>
+                                <</replace>>
+                            <</link>>
+                        </div>
+                    <</replace>>
+                <</link>>
+                <<link "DIREITA">>
+                    <<replace "#dialogo1">>
+                        <div id="dialogo2">
+                            <<link "ESQUERDA">>
+                                <<replace "#dialogo2">>
+                                    <div id="dialogo3">
+                                        <<link "ESQUERDA">>
+                                            <<replace "#dialogo3">>
+                                                 Merda! Não é por aqui!
+                                              [[VOLTAR|CAMINHO DE VOLTA]]
+                                            <</replace>>
+                                        <</link>>
+                                        <<link "DIREITA">>
+                                            <<replace "#dialogo3">>
+                                                   Não faço ideia aonde eu estou!
+                                                [[VOLTAR|CAMINHO DE VOLTA]]
+                                            <</replace>>
+                                        <</link>>
+                                    </div>
+                                <</replace>>
+                            <</link>>
+                            <<link "DIREITA">>
+                                <<replace "#dialogo2">>
+                                    <div id="dialogo3">
+                                        <<link "ESQUERDA">>
+                                            <<replace "#dialogo3">>
+                                                Não faço ideia aonde eu estou!
+                                                [[VOLTAR|CAMINHO DE VOLTA]]
+                                            <</replace>>
+                                        <</link>>
+                                        <<link "DIREITA">>
+                                            <<replace "#dialogo3">>
+                                                Merda! Não é por aqui!
+                                              [[VOLTAR|CAMINHO DE VOLTA]]
+                                            <</replace>>
+                                        <</link>>
+                                    </div>
+                                <</replace>>
+                            <</link>>
+                        </div>
+                    <</replace>>
+                <</link>>
+            </div>
+        <</replace>>
+    <</link>>
+</div>
+
+
+</p>
+</div>
+</body>
+
+
+:: CAMINHO DE VOLTA PARA PRESO {"position":"1600,700","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>
+
+NO DESESPERO, VOCÊ DECIDE SEGUIR SEU CORAÇÃO PARA CONSEGUIR FUGIR!:
+
+<div id="dialogo">
+    <<link "DIREITA">>
+        <<replace "#dialogo">>
+            Você decidiu ir para a direita.
+            <div id="dialogo1">
+                <<link "DIREITA">>
+                    <<replace "#dialogo1">>
+                        <div id="dialogo2">
+                            <<link "DIREITA">>
+                                <<replace "#dialogo2">>
+                                    VOCÊ ENCONTRA O CAMINHO CERTO E CHEGA EM [[CASA|RUA DE CASA]] 
+                                <</replace>>
+                            <</link>>
+                        </div>
+                    <</replace>>
+                <</link>>
+                <<link "ESQUERDA">>
+                    <<replace "#dialogo1">>
+                        <div id="dialogo2">
+                            <<link "ESQUERDA">>
+                                <<replace "#dialogo2">>
+                                    <div id="dialogo3">
+                                        <<link "ESQUERDA">>
+                                            <<replace "#dialogo3">>
+                                                  Merda! Não é por aqui!
+                                              [[VOLTAR|CAMINHO DE VOLTA PARA PRESO]]
+                                            <</replace>>
+                                        <</link>>
+                                        <<link "DIREITA">>
+                                            <<replace "#dialogo3">>
+                                                Não faço ideia aonde eu estou!
+                                                [[VOLTAR|CAMINHO DE VOLTA PARA PRESO]]
+                                            <</replace>>
+                                        <</link>>
+                                    </div>
+                                <</replace>>
+                            <</link>>
+                            <<link "DIREITA">>
+                                <<replace "#dialogo2">>
+                                    <div id="dialogo3">
+                                        <<link "ESQUERDA">>
+                                            <<replace "#dialogo3">>
+                                                Não faço ideia aonde eu estou!
+                                                [[VOLTAR|CAMINHO DE VOLTA PARA PRESO]]
+                                            <</replace>>
+                                        <</link>>
+                                        <<link "DIREITA">>
+                                            <<replace "#dialogo3">>
+                                                 Merda! Não era por aqui!
+                                                 VOCÊ SE DEPARA COM DOIS POLICIAIS E É 
+                                              [[PRESO.|2 ANOS DE CADEIA]]
+                                            <</replace>>
+                                        <</link>>
+                                    </div>
+                                <</replace>>
+                            <</link>>
+                        </div>
+                    <</replace>>
+                <</link>>
+            </div>
+        <</replace>>
+    <</link>>
+    <<link "ESQUERDA">>
+        <<replace "#dialogo">>
+            Você decidiu ir para a esquerda.
+            <div id="dialogo1">
+                <<link "ESQUERDA">>
+                    <<replace "#dialogo1">>
+                        <div id="dialogo2">
+                            <<link "ESQUERDA">>
+                                <<replace "#dialogo2">>
+                                    <div id="dialogo3">
+                                        <<link "ESQUERDA">>
+                                            <<replace "#dialogo3">>
+                                                  Merda! Não é por aqui!
+                                              [[VOLTAR|CAMINHO DE VOLTA PARA PRESO]]
+                                            <</replace>>
+                                        <</link>>
+                                        <<link "DIREITA">>
+                                            <<replace "#dialogo3">>
+                                               Não faço ideia aonde eu estou!
+                                                [[VOLTAR|CAMINHO DE VOLTA PARA PRESO]]
+                                            <</replace>>
+                                        <</link>>
+                                    </div>
+                                <</replace>>
+                            <</link>>
+                            <<link "DIREITA">>
+                                <<replace "#dialogo2">>
+                                    <div id="dialogo3">
+                                        <<link "ESQUERDA">>
+                                            <<replace "#dialogo3">>
+                                                   Não faço ideia aonde eu estou!
+                                              VOCÊ SE DEPARA COM DOIS POLICIAIS E É 
+                                              [[PRESO.|2 ANOS DE CADEIA]]
+                                            <</replace>>
+                                        <</link>>
+                                        <<link "DIREITA">>
+                                            <<replace "#dialogo3">>
+                                                  Merda! Não é por aqui!
+                                              [[VOLTAR|CAMINHO DE VOLTA PARA PRESO]]
+                                            <</replace>>
+                                        <</link>>
+                                    </div>
+                                <</replace>>
+                            <</link>>
+                        </div>
+                    <</replace>>
+                <</link>>
+                <<link "DIREITA">>
+                    <<replace "#dialogo1">>
+                        <div id="dialogo2">
+                            <<link "ESQUERDA">>
+                                <<replace "#dialogo2">>
+                                    <div id="dialogo3">
+                                        <<link "ESQUERDA">>
+                                            <<replace "#dialogo3">>
+                                                 Merda! Não é por aqui!
+                                              [[VOLTAR|CAMINHO DE VOLTA PARA PRESO]]
+                                            <</replace>>
+                                        <</link>>
+                                        <<link "DIREITA">>
+                                            <<replace "#dialogo3">>
+                                                   Não faço ideia aonde eu estou!
+                                                [[VOLTAR|CAMINHO DE VOLTA PARA PRESO]]
+                                            <</replace>>
+                                        <</link>>
+                                    </div>
+                                <</replace>>
+                            <</link>>
+                            <<link "DIREITA">>
+                                <<replace "#dialogo2">>
+                                    <div id="dialogo3">
+                                        <<link "ESQUERDA">>
+                                            <<replace "#dialogo3">>
+                                                Não faço ideia aonde eu estou!
+                                                [[VOLTAR|CAMINHO DE VOLTA PARA PRESO]]
+                                            <</replace>>
+                                        <</link>>
+                                        <<link "DIREITA">>
+                                            <<replace "#dialogo3">>
+                                                Merda! Não é por aqui!
+                                              VOCÊ SE DEPARA COM DOIS POLICIAIS E É 
+                                              [[PRESO.|2 ANOS DE CADEIA]]
+                                            <</replace>>
+                                        <</link>>
+                                    </div>
+                                <</replace>>
+                            <</link>>
+                        </div>
+                    <</replace>>
+                <</link>>
+            </div>
+        <</replace>>
+    <</link>>
+</div>
+
+
+</p>
+</div>
+</body>
+
+
+:: CAPÍTULOS {"position":"0,300","size":"100,100"}
+[[BAILE]]
+[[CASA|CHEGOU EM CASA]]
+[[RUAS ESCURAS]]
+[[PRISÃO|ARCO DA PRISÃO]]
+[[LOTERIA|GANHAR NA LOTERIA]]
+
+
+:: CARRO {"position":"1400,200","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+
+<body>
+<div class="bottom">
+<p>NO CAMINHO PARA CASA, UM SILENCIO TOMA O AMBIENTE DO VEÍCULO. 
+
+- SERÁ QUE EU DEVERIA QUBRAR ESSE GELO?
+
+[[CONVERSAR COM O MOTORISTA]] 
+[[NÃO CONVERSAR COM O MOTORISTA|RUA DE CASA]] 
+</p>
+</div>
+</body>
+
+
+:: CHEGA AO TRABALHO NORMAL {"position":"3275,350","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>
+PARABENS, VC MANTEVE SEU EMPREGO
+
+[[VOLTAR PARA O INICIO|MENU INICIAR]]
+
+</p>
+</div>
+</body>
+
+
+:: CHEGOU EM CASA {"position":"2000,200","size":"100,100"}
+<<set $karma +=1>>
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>
+
+FINALMENTE EM CASA. VOCÊ TEM 3 HORAS PARA DORMIR ATÉ DAR A HORA DE IR TARBALHAR.
+
+[[DORMIR]]
+[[FICAR ACORDADO]]
+
+</p>
+</div>
+</body>
+
+
+:: COMPRAR MAIS {"position":"700,200","size":"100,100"}
+<<set $karma -= 1>>
+<div class="cerveja-image"></div>
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+
+<body>
+<div class="bottom">
+<p>VOCÊ VAI ATÉ UM VENDEDOR AMBULANTE PARA COMPRAR UMA BEBIDA E SE DEPARA COM UMA RODA DE PESSOAS. 
+                                <div id="feedback">
+                                      <<link "PAGAR UMA BEBIDA PARA ALGUÉM">>
+                                          <<set $karma += 1>>
+                                          <<replace "#karma-value">><<print $karma>><</replace>>
+                                          <<replace "#feedback">>
+                                          VOCÊ SE APROXIMA DE UMA DELAS PARA PUXAR ASSUNTO OFERENCENDO UMA BEBIDA.
+                                [[CONVERSAR MAIS]] 
+                                [[CHAMAR PARA DANÇAR|DANÇAR]]<</replace>>
+                                       <</link>>
+                                        [[FICAR NA SUA]] 
+                             </div>
+</p>
+</div>
+</body> 
+
+
+:: CONVERSAR COM ALGUÉM MAL INTENCIONADO {"position":"800,600","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+
+<body>
+<div class="bottom">
+<p>VOCÊ SE VIRA PARA O PRIMEIRO MALUCO QUE APARECE NA SUA FRENTE
+
+<div id="dialogo">
+<<link "OPA MEU NOBRE">>
+	<<set $karma += 1>>
+	<<replace "#karma">><<print $karma>><</replace>>
+    <<replace "#dialogo">>
+          Opa meu parcero, tudo supimpa?
+              <div id="dialogo1">
+                <<link "Tudo tranquilo. Ta curtindo muito o baile ai?">>
+                    <<set $karma += 1>>
+                    <<replace "#karma">><<print $karma>><</replace>>
+                    <<replace "#dialogo1">>
+                          Ta gostosin, po. Daora.  
+                    <</replace>>
+                <</link>>
+                <<link "To normal. Por que a pergunta?">>
+                    <<set $karma += 0>>
+                    <<replace "#karma">><<print $karma>><</replace>>
+                    <<replace "#dialogo1">>
+                         Ih, carai, foi tu que puxou assunto!
+                    <</replace>>
+                 <</link>>
+                 <<link "Ta sem ninguém ai também, né?">>
+                    <<set $karma -= 1>>
+                    <<replace "#karma">><<print $karma>><</replace>>
+                    <<replace "#dialogo1">>
+                         Que pergunta é essa maluco? Eu hein! <</replace>>
+          			<</link>>
+				</div>
+		<</replace>>
+<</link>>
+<<link "EAE">>
+	<<set $karma += 0>>
+	<<replace "#karma">><<print $karma>><</replace>>
+    <<replace "#dialogo">>
+          Coe, ta precisando de alguma coisa?
+          <div id="dialogo1">
+                <<link "To não cara, obrigado por perguntar.">>
+                    <<set $karma -= 1>>
+                    <<replace "#karma">><<print $karma>><</replace>>
+                    <<replace "#dialogo1">>
+                         Oxi, que cara estranho.
+                         <</replace>>
+                          <</link>>
+                <<link "To só querendo trocar ideia mesmo.">>
+                    <<set $karma += 0>>
+                    <<replace "#karma">><<print $karma>><</replace>>
+                    <<replace "#dialogo1">>
+                         Po, cara. Foi mal. To com uma galera ali, so vim aqui comprar mais cerveja mesmo. Valeu, valeu! <</replace>>
+                          <</link>>
+                <<link "Ta frio hoje né? Daora a peita!">>
+                    <<set $karma += 1>>
+                    <<replace "#karma">><<print $karma>><</replace>>
+                    <<replace "#dialogo1">> Ah, valeu mano. Tamo junto. <</replace>>
+          <</link>>
+        </div>
+		<</replace>>
+<</link>>
+<<link "QUAL FOI IRMAO">>
+	<<set $karma -= 1>>
+	<<replace "#karma">><<print $karma>><</replace>>
+    <<replace "#dialogo">>
+         "Qual foi" foi ontém! O que que tu quer, mane?
+         <div id="dialogo1">
+           <<link "Foi mal, foi mal. Não queria incomodar!">>
+                    <<set $karma += 1>>
+                    <<replace "#karma">><<print $karma>><</replace>>
+                    <<replace "#dialogo1">>
+                         Olha lá, hein! Fica esperto com o que tu fala. <</replace>>
+                          <</link>>
+                <<link "Relaxa, parceiro! To só querendo trocar ideia!">>
+                    <<set $karma += 0>>
+                    <<replace "#karma">><<print $karma>><</replace>>
+                    <<replace "#dialogo1">>Ih, te manca pra lá, mane!!  <</replace>>
+                          <</link>>
+                <<link "Já cresceu pra cima por quê? So te fiz uma pergunta rapa">>
+                    <<set $karma -= 1>>
+                    <<replace "#karma">><<print $karma>><</replace>>
+                    <<replace "#dialogo1">> E eu lá te conheço? Tá querendo arrumar confusão mane?  
+                    <</replace>>
+          	<</link>>
+          </div>
+         <</replace>>
+<</link>>
+</div>
+
+[[ENCHER A CARA]]
+[[IR EMBORA]]
+[[DANÇAR]]
+</p>
+</div>
+</body>
+
+
+:: CONVERSAR COM O MOTORISTA {"position":"1400,400","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>A SUA CARONA CHEGA E VOCÊ ENTRA NO CARRO. AINDA ESTÁ UM POUCO ALTERADO POR CAUSA DAS BEBIDAS.
+<div id="dialogo">
+<<link "CONVERSAR COM O MOTORISTA">>
+<<set $karma +=1>>
+<<replace "#karma-value">> <<print $karma>><</replace>>
+<<replace "#dialogo">>
+<div id="opcao1">
+<<link "Opa, tudo bom?">>
+<<replace "#opcao1">> 
+VOCÊ: Opa, tudo bom? Esse carro é seu?
+Motorista: É sim, por que a pergunta?
+VOCÊ: Ah, só curiosidade. Ele tem um cheiro... interessante. Eu tinha um tio que usava o mesmo perfume. Ele também era motorista e sempre reclamava do trabalho.
+Motorista: Eu gosto do que faço.
+VOCÊ: Que bom. Meu tio acabou mudando de profissão depois que bateu o carro várias vezes.
+Motorista: Ah, não... Graças a Deus, nunca bati.
+VOCÊ: Nossa, sorte sua. Ele dizia que era por causa do nervosismo com os VOCÊs.
+Motorista: Eu procuro sempre manter a calma.
+VOCÊ: Que bom... Espero que continue assim. Nunca se sabe, né? 
+
+[[VOCÊ CHEGOU AO SEU DESTINO|RUA DE CASA]]<</replace>>
+<</link>>
+<<link "Boa noite, tudo bem?">>
+<<replace "#opcao1">> 
+VOCÊ: Boa noite, tudo bem?
+Motorista: Boa noite! Tudo ótimo, e você?
+VOCÊ: Tudo bem. Som legal. Você gosta de música alta?
+Motorista: Gosto sim, às vezes escuto bem alto.
+VOCÊ: Eu conheci um motorista que também gostava, mas ele acabava se distraindo e errava o caminho.
+Motorista: Eu procuro me concentrar.
+VOCÊ: Ah, que bom. Porque na última vez que andei com ele, fomos parar em outro bairro.
+Motorista: Nossa, isso é complicado.
+VOCÊ: Pois é, mas acho que você deve ser mais cuidadoso, né?
+Motorista: Sim, sempre tento ser.
+VOCÊ: Que alívio. Nunca se sabe o que pode acontecer à noite.
+ 
+[[VOCÊ CHEGOU AO SEU DESTINO|RUA DE CASA]]<</replace>>
+<</link>>
+<<link "Oi, tudo certo?">>
+<<replace "#opcao1">> 
+VOCÊ: Oi, tudo certo?
+Motorista: Tudo sim, e você?
+VOCÊ: Bem, obrigado. Esse carro é bem confortável. Você cuida bem dele?
+Motorista: Sim.
+VOCÊ: Legal. Eu lembro de uma vez que entrei num carro que parecia igual, mas o banco estava solto. Naquele dia, o motorista não sabia o que fazer e a gente ficou rindo sem parar. Foi um pouco estranho.
+Motorista: Imagino...
+VOCÊ: Mas parece que você é bem mais preparado. A última coisa que eu quero é um banco solto de novo.
+Motorista: Pode ficar tranquilo.
+VOCÊ: Ótimo. Porque depois daquele dia, fiquei meio traumatizado.
+ 
+[[VOCÊ CHEGOU AO SEU DESTINO|RUA DE CASA]]<</replace>>
+<</link>>
+</div>
+<</replace>>
+<</link>>
+[[FICAR EM SILÊNCIO|RUA DE CASA]]
+</div>
+</p>
+</div>
+</body>
+
+
+:: CONVERSAR MAIS {"position":"500,450","size":"100,100"}
+<div class="karma-status">
+<div class="musicaalta-image"></div>
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+
+<body>
+<div class="bottom">
+<p>A MUSICA ESTÁ MUITO ALTA, NÃO TEM COMO CONVERSAR ALI
+
+[[FICAR NA SUA MESMO|FICAR]]
+[[DANÇAR]]
+
+</p>
+</div>
+</body>
+
+
+:: CRÉDITOS {"position":"0,100","size":"100,100"}
+GUSTAVO 
+LUCAS²
+
+INTRODUÇÃO A NARRATIVAS INTERATIVAS
+
+
+
+:: DANÇAR {"position":"650,450","size":"100,100"}
+<<set $karma += 1>>
+<div class="dancs-image"></div>
+<div class="karma-status">
+<p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+
+<body>
+<div class="bottom">
+<p>
+<<if $karma <= -2>>
+"Você tropeça e cai humilhantemente. Algumas pessoas riem de você.
+    - QUE MERDA! 
+    
+    [[BEBER MAIS|BEBEU MAIS]]
+    [[IR EMBORA]]"
+<</if>>
+<<if $karma == 0>>
+"Você tenta dançar, mas só parece um esquisito mesmo"
+- É... HOJE NÃO É O DIA.
+
+	[[BEBER MAIS|BEBEU MAIS]]
+    [[IR EMBORA]]"
+<</if>>
+<<if $karma >= 2>>
+"Você lança uns passinhos daora! Uma roda de dança se forma em volta de você e
+uma pessoa se aproxima te chamando para uma batalha de dança!
+
+[[ACEITAR|RECUSOU BATALHA DE DANÇA]]
+[[RECUSAR|RECUSOU BATALHA DE DANÇA]]
+"
+<</if>>
+</p>
+</div>
+</body>
+
+
+:: DESERPERAR {"position":"1250,400","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+
+
+:: DOMIR NA RUA {"position":"1100,525","size":"100,100"}
+<<set $karma -=1>>
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>
+VOCÊ ESTÁ BEBADO E DORMINDO NA RUA. DE REPENTE, SENTE UMA MOVIMENTÇÃO ESTRANHA E ACORDA ASSUSTADO!
+ALGUÉM ESTAVA PEGANDO AS SUAS COISAS, PORÉM, VOCÊ CONSEGUIU ACORDAR A TEMPO PARA TOMAR ALGUMA ATITUDE!
+<div id="dado">
+    <<link "TENTAR SOCAR">>
+        <<set $roll to random (1, 20)>>
+        <<replace "#dado">>
+                <<if $roll < 10>>
+                    Você erra feio! 
+                    Sem chance! Melhor dar o fora!
+                    [[FUGIR DALI|CAMINHO DE VOLTA]]
+                    <<set $karma += 2>>
+                <<else>>
+                <<replace "#dado1">>
+                    Você acerta o soco e o cara fica atordoado!
+                    
+                    [[FUGIR DALI|CAMINHO DE VOLTA]]<</replace>>
+                <</if>>
+        <</replace>>
+    <</link>>
+</div>
+<div id="dado1">
+    <<link "TENTAR CHUTAR">>
+        <<set $roll to random (1, 20)>>
+        <<replace "#dado1">>
+                <<if  $roll >5 && $roll < 17 >> <<set $karma += 2>>
+                    Meu Deus! O lugar mais seguro no mundo é frente do seu chute!
+                    Essa aqui eu não ganho nunca!
+                    [[FUGIR DALI|CAMINHO DE VOLTA]]
+                <<elseif $roll < 5>>
+                	<<replace "#dado">>
+                	Você erra e cai tão feio no chão que desmaia.
+                    [[Bebado, sem digniade e agora sem consciencia, não é?|ACORDA]]			
+                    <</replace>>
+                <<else>> 
+                	<<replace "#dado">>
+                    Você acerta!
+                    De alguma forma o cara conseguiu tomar um chute de um bebado!
+ 
+                    [[FUGIR DALI|CAMINHO DE VOLTA]]<</replace>>
+                <</if>>
+        <</replace>>
+    <</link>>
+</div>
+</p>
+</div>
+</body>
+
+
+
+
+:: DORMIR {"position":"2000,350","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>
+<<if $karma > 2>>
+VOCÊ ACORDA A TEMPO, SE ARRUMA, PEGA SUAS COISAS E SAI A TEMPO PARA PEGAR O ÔNIBUS! 
+[[CHEGANDO NO HORÁRIO DO SEU EXPEDIENTE|CHEGA AO TRABALHO NORMAL]]
+
+<<else>>
+VOCÊ ACORDA ATRASADO E DESESPERADO, TENTA SE ARRUMAR, SAI CORRENDO PARA A RUA MAS JÁ É TARDE DEMAIS...
+
+O ÔNIBUS PASSA.
+VOCÊ NÃO TEM MAIS DINHEIRO PARA CARONA, VOCÊ NÃO TEM AMIGOS PARA TE AJUDAR NESSE MOMENTO E TAMBÉM NÃO ADIANTA ESPERAR O PROXIMO ONIBUS POIS ELE SÓ PASSA DAQUI A 2 HORAS.
+[[SEGUIR PARA CASA]]
+<</if>>
+
+</p>
+</div>
+</body>
+
+
+:: ENCHER A CARA {"position":"550,700","size":"100,100"}
+<<set $karma -=1>>
+<div class="bebermais-image"></div>
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+
+<body>
+<div class="bottom">
+<p>
+ALGUÉM TE OFERECE UMAS PARADINHAS 
+
+[[NÃO ACEITAR]]
+[[ACEITAR]]
+
+</p>
+</div>
+</body>
+
+
+:: FICAR {"position":"550,575","size":"100,100"}
+<div class="karma-status">
+<div class="musicaalta-image"></div>
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+
+<body>
+<div class="bottom">
+<p>
+VOCÊ FICA E NÃO CONSEGUE CONVERSAR COM A PESSOA. ELA VOLTA PARA SEU GRUPO DE AMIGOS. AGORA VOCE ESTÁ SOZINHO DE NOVO
+
+[[ENCHER A CARA]]
+[[IR EMBORA]]
+</p>
+</div>
+</body>
+
+
+:: FICAR ACORDADO {"position":"1875,500","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>
+VOCÊ FICA ACORDADO E NÃO TEM MUITA COISA PARA VOCÊ FAZER.
+
+<div id="dialogo"> 
+<<link "OLHAR INSTAGRAM">> 
+<<if $karma < 1>>
+<<set $karma -=1>>
+<<replace "#karma-value">><<print $karma>><</replace>>
+<<replace "#dialogo">>
+NADA TE ATRAI NA REDE SOCIAL, SO TEM COISA INUTIL E A TELA DO CELULAR TAMBEM ESTAVA MUITO CLARA. VOCE PERDE BASTANTE TEMPO PASSANDO REELS. AGORA VOCÊ TEM MENOS TEMPO AINDA PARA DORMIR.<</replace>>
+<<else>>
+<<set $karma +=1>>
+<<replace "#karma-value">><<print $karma>><</replace>>
+<<replace "#dialogo">>
+O APLICATIVO TE DIVERTE UM POUCO, MAS VOCE AINDA TEM QUE DORMIR.
+<</replace>>
+<</if>>
+<</link>>
+<<link "JOGAR ALGUM JOGO">>
+<<if $karma < 1>>
+<<set $karma -=1>>
+<<replace "#karma-value">><<print $karma>><</replace>>
+<<replace "#dialogo">>
+VOCÊ FICA MUITO ESTRESSADO JOGANDO QUE ACABA NÃO VENDO A HORA PASSAR. AGORA VOCÊ TEM MENOS TEMPO AINDA PARA DORMIR.<</replace>>
+<<else>>
+<<set $karma +=1>>
+<<replace "#karma-value">><<print $karma>><</replace>>
+<<replace "#dialogo">>
+O JOGO TE DIVERTE UM POUCO, MAS VOCE AINDA TEM QUE DORMIR.
+<</replace>>
+<</if>>
+<</link>>
+</div>
+[[DORMIR]]
+
+</p>
+</div>
+</body>
+
+
+:: FICAR EM SILÊNCIO {"position":"1800,300","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>
+- É melhor eu ficar quieto. 
+
+O MOTOQUEIRO PRETENDE PEGAR A TRAJETÓRIA PELA [[AVENIDA.]]
+</p>
+</div>
+</body>
+
+
+
+
+:: FICAR NA SUA {"position":"800,300","size":"100,100"}
+<<set $karma -= 1>>
+<div class="sozinho-image"></div>
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+
+<body>
+<div class="bottom">
+<p>KARMA: $karma
+
+VOCÊ É UM FUDIDO DE UM CARA SOZINHO! SEM AMIGOS E LONGE DA SUA CASA!
+
+Eu posso [[dar mais uns goles,|BEBEU MAIS]] não faz mal.
+[[IR EMBORA]]
+</p>
+</div>
+</body>
+
+
+
+
+:: GANHAR NA LOTERIA {"position":"3275,450","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>
+PARABENS VOCE GANHOU NA LOTERIA!!
+
+[[VOLTAR PARA O INICIO|MENU INICIAR]]
+</p>
+</div>
+</body>
+
+
+:: INTERVIR {"position":"550,975","size":"100,100"}
+<<set $karma -= 1>>
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+
+<body>
+<div class="bottom">
+<p>VOCÊ ESTÁ MALUCO! FORA DE SÍ! 
+E POR ALGUM MOTIVO VOCÊ TENTA INTERVIR EM UMA BRIGA QUE NÃO TEM NADA A VER COM VOCÊ!
+ISSO É UMA AÇÃO TÃO OUSADA E SEM SENTIDO QUE AS DUAS PESSOAS BRIGANDO PARTEM PARA CIMA DE VOCÊ
+
+[[SE DEFENDER]]
+[[ATACAR]]
+
+</p>
+</div>
+</body>
+
+
+:: IR A PÉ {"position":"1000,200","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+
+<body>
+<div class="bottom">
+<p>ANDANDO PELAS RUAS DE MADRUGADA LEVEMENTE TONTO
+
+[[RUAS ESCURAS]]
+
+</p>
+</div>
+</body>
+
+
+:: IR EMBORA {"position":"1200,100","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+
+<body>
+<div class="bottom">
+<p>LEMBRE-SE QUE JÁ SÃO QUASE MEIA NOITE E QUE AMANHÃ  VOCÊ TERÁ QUE TRABALHAR.
+<<if $karma >= 0>>
+[[PEDIR UM UBER|CARRO]]
+[[IR A PÉ]]
+<</if>>
+<<if $karma < 0 && $karma > - 2>>
+[[PEDIR UM UBER|MOTO]]
+[[IR A PÉ]]
+<</if>>
+<<if $karma <= - 3>>
+[[PEDIR UM UBER|PQ IR A PÉ]]
+[[IR A PÉ]]
+<</if>>
+</p>
+</div>
+</body>
+
+
+:: KARMA {"position":"0,200","size":"100,100"}
+Refere-se ao ciclo infinito de causa e efeito gerado pelas atitudes, pensamentos, falas e comportamentos de cada indivíduo. Cada ação tomada por um ser vivo tem efeito em sua vida, seja no futuro próximo ou na próxima vida.
+
+
+:: MENU INICIAR {"position":"200,200","size":"100,100"}
+<div id="background" class="first-passage">
+</div>
+  <div id="start-menu">
+    <h1>CRIAS DOS CRIAS</h1>
+    <div id="ui-bar" class="ui-bar-buttons">
+[[INICIAR|BAILE]]
+[[KARMA]]
+[[CAPÍTULOS]]
+[[CRÉDITOS]]
+    </div>
+  </div>
+
+
+
+
+
+
+:: MILIONÁRIO {"position":"2400,500","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>
+PARABENS, VOCÊ É MAIS NOVO [[MILIONARIO!|GANHAR NA LOTERIA]]
+A PESSOA MAIS SORTUDA DO MUNDO"
+DEPOIS DE TUDO QUE PASSOU, VOCÊ MERECE!
+</p>
+</div>
+</body>
+
+
+:: MORTE {"position":"3275,150","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+
+<body>
+<div class="bottom">
+<p>
+SUA HISTORIA ACABA AQUI, MEUS PARABENS.
+
+[[VOLTAR PARA O INICIO|MENU INICIAR]]
+
+</p>
+</div>
+</body>
+
+
+:: MOTO {"position":"1675,100","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>
+POR ESTAR UM POUCO ALTERADO, VOCE ACABA ERRANDO O BOTAO E CHAMANDO UM UBER MOTO. ALGUNS MINUTOS SE PASSAM E UMA FAN 150 CHEGAR NO SEU LOCAL DE PARTIDA. 
+
+<div id= "mal">
+<<link "SÓ SUBIR NA MOTO">>
+<<set $karma -=1>>
+<<replace "#karma-value">><<print $karma>><</replace>>
+<<replace "#mal">>
+PELA FORMA QUE O MOTOQUEIRO PILOTAVA PARECIA ATÉ QUE ELE ESTAVA FORAGIDO.
+[[FICAR EM SILÊNCIO]]
+<<link "PRA QUE TANTA PRESSA?">>
+<<set $karma -=1>>
+<<replace "#karma-value">><<print $karma>><</replace>>
+<<replace "#dialogo">>ESTOU QUERENDO FAZER MUITAS CORRIDAS ESSA NOTIE. VOU TENTAR FINALIZAR ESSA AQUI O MAIS RÁPIDO POSSIVEL.
+		[[NÃO PRECISA CORRER TANTO!]]<</replace>>
+<</link>>
+<div id="dialogo"></div>
+<</replace>>
+<</link>>
+<<link "CUMPRIMENTAR O MOTOQUEIRO E SUBIR NA MOTO">>
+<<set $karma +=1>>
+<<replace "#karma-value">><<print $karma>><</replace>>
+<<replace "#mal">>
+PELA FORMA QUE O MOTOQUEIRO PILOTAVA PARECIA ATÉ QUE ELE ESTAVA FORAGIDO.
+[[FICAR EM SILÊNCIO]]
+<<link "PRA QUE TANTA PRESSA?">>
+<<set $karma -=1>>
+<<replace "#karma-value">><<print $karma>><</replace>>
+<<replace "#dialogo">>ESTOU QUERENDO FAZER MUITAS CORRIDAS ESSA NOTIE. VOU TENTAR FINALIZAR ESSA AQUI O MAIS RÁPIDO POSSIVEL.
+		[[NÃO PRECISA CORRER TANTO!]]<</replace>>
+<</link>>
+<div id="dialogo"></div>
+<</replace>>
+<</link>>
+</div>
+</p>
+</div>
+</body>
+
+
+:: NÃO ACEITAR {"position":"500,825","size":"100,100"}
+<<set $karma +=1>>
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>
+
+- Não, não. Valeu, eu to bebado mas eu não quero ficar maluco.
+
+VOCÊ PERCEBE UMA BRIGA SE INICIANDO.
+
+[[INTERVIR]]
+[[NÃO INTERVIR]]
+
+</p>
+</div>
+</body>
+
+
+:: NÃO FOI DESSA VEZ {"position":"2400,300","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>
+É... NÃO FOI DESSA VEZ.
+VOCÊ CONTOU COM A SORTE ATÉ AQUI E MUITAS COISAS DERAM ERRADO, POR QUE AGORA SERIA DIFERENTE? É MELHOR RETORNAR E PENSAR NA SUA VIDA E NO QUE FARÁ AGORA E ESPERAR O [[PIOR|SER DEMITIDO DO TRABALHO]].
+</p>
+</div>
+</body>
+
+
+:: NÃO INTERVIR {"position":"350,825","size":"100,100"}
+<<set $karma +=1>>
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>
+
+- Melhor ficar na minha. Arrumar confusão pra quê?
+
+[[COMPRAR MAIS BEBIDA||COMPRAR MAIS]]
+[[DANÇAR]]
+[[IR EMBORA]]
+
+</p>
+</div>
+</body>
+
+
+:: NÃO PRECISA CORRER TANTO! {"position":"1600,300","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>
+EU TRABALHO DESSA FORMA, SE ACHAR RUIM PODE DESCER DA MOTO.
+<div id="dialogo1">
+<<link "QUE ISSO CARA, SO ESTOU FALANDO PARA VOCÊ REDUZIR A VELOCIDADE UM POUCO.">>
+<<set $karma -=1>>
+<<replace "#karma-value">> <<print $karma>><</replace>>
+<<replace "#dialogo">>NÃO VOU. SE SEGURA AI!
+O MOTOQUEIRO PRETENDE PEGAR A TRAJETÓRIA PELA [[AVENIDA.]]<</replace>>
+<<replace "#dialogo1">> - QUE ISSO CARA, SO ESTOU FALANDO PARA VOCÊ REDUZIR A VELOCIDADE UM POUCO.<</replace>>
+<</link>>
+<<link "FICAR EM SILÊNCIO">>
+<<set $karma -=1>>
+<<replace "#karma-value">> <<print $karma>><</replace>>
+<<replace "#dialogo">>O MOTOQUEIRO PRETENDE PEGAR A TRAJETÓRIA PELA [[AVENIDA.]]<</replace>>
+<<replace "#dialogo1">> - Melhor eu ficar quieto.<</replace>>
+<</link>>
+</div>
+<div id="dialogo"></div>
+</p>
+</div>
+</body>
+
+
+
+
+:: PAGAR UMA BEBIDA PARA ALGUÉM {"position":"600,300","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+
+<body>
+<div class="bottom">
+<p>VOCÊ SE ENTURMA COM A PESSOA E COMEÇAM A CONVERSAR BASTANTE.
+
+[[DANÇAR]]
+[[CONVERSAR MAIS]]
+</p>
+</div>
+</body>
+
+
+:: PQ IR A PÉ {"position":"1175,250","size":"100,100"}
+<<set $karma += 1>>
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+
+<body>
+<div class="bottom">
+<p>
+<<if $karma == 0>>
+"SEU CELULAR ACABOU A BATERIA BEM NA HORA QUE VOCÊ IA CHAMAR O UBER... QUE PENA!
+- É, não vai ter jeito. Vo ter que [[bater pé mesmo!|IR A PÉ]]!"
+<</if>>
+<<if $karma <= - 1>>
+"VOCÊ BATE A MÃO NO BOLSO E NÃO SENTE SEU CELULAR
+[[AGORA JÁ ERA, NÃO TEM O QUE FAZER|IR A PÉ]]
+[[DESERPERAR]]"
+<</if>>
+</p>
+</div>
+</body>
+
+
+:: RECUSOU BATALHA DE DANÇA {"position":"775,775","size":"100,100"}
+<div class="rec-image"></div>
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>
+- Eu acho que eu estou muito bebado para fazer isso agora.  Mas agradeço o convite!
+
+A PESSOA TE OFERECE UMAS PARADINHAS ESTRANHAS.
+VOCÊ ACEITA?
+
+[[SIM|ACEITAR]] 
+<<if $karma <-1>>
+[[NÃO|ACEITAR]]
+<</if>>
+<<if $karma >-1>>
+[[NÃO|NÃO ACEITAR]]
+<</if>>
+
+</p>
+</div>
+</body>
+
+
+
+:: RUA DE CASA {"position":"1900,0","size":"100,100"}
+<div class="karma-status">
+<p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>
+DEPOIS DE TANTO TEMPO VOCÊ ESTÁ DE FRENTE AO PORTÃO DE SUA CASA!
+- Meu Deus, que alívio! Agora é só entrar em [[casa|CHEGOU EM CASA]]...
+</p>
+</div>
+</body>
+
+
+:: RUAS ESCURAS {"position":"1100,400","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+
+<body>
+<div class="bottom">
+<p>
+VOCE ANDA DESOLADO PELOS FRIOS ASFALTOS E OBSCURAS VIELAS. VOCE SABE DA MOVIMENTAÇAO DA GALERA NA MADRUGADA. 
+
+- NOSSA ESTOU MUITO ABALADO, O QUE EU FAÇO AGORA? PERDIDAO NO MEIO DO NADA, MANÉ!
+
+<<if $karma <= 0>>
+[[DOMIR NA RUA]]
+<<else>>
+[[DORMIR NA RUA|ACORDA]]
+<</if>>
+[[TENTAR CHEGAR EM CASA DE QUALQUER FORMA|VOLTAR PRA CASA]]
+
+</p>
+</div>
+</body>
+
+
+:: SE DEFENDER {"position":"475,1100","size":"100,100"}
+<<set $karma +=1>>
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+
+<body>
+<div class="bottom">
+<p>SEUS REFLEXOS SÃO DIGNOS DE UMA PORTA. VOCÊ CAI NO CHÃO APÓS O PRIMEIRO SOCO.
+
+[[FUGIR|RUAS ESCURAS]]
+[[TENTAR SE LEVANTAR|BRIGAR MAIS]]
+
+</p>
+</div>
+</body>
+
+
+:: SEGUIR PARA CASA {"position":"2100,425","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>VOLTANDO PARA CASA DESESPERANÇOSO, DESTRUIDO, INDIGNO DE NENHUM ELOGIO, VOCÊ SE DEPARA COM UMA CASA LOTÉRICA.
+
+NO MESMO INSTANTE, REMETE-SE AO FATO DE NÃO TER GASTO OS 5 REAIS COM A PASSAGEM, PORÉM PODE TENTAR A [[SORTE]] AINDA...
+
+OU ENTÃO, SÓ VOLTAR PARA CASA E ESPERAR PELA [[DEMISSÃO|SER DEMITIDO DO TRABALHO]].
+
+</p>
+</div>
+</body>
+
+
+:: SER DEMITIDO DO TRABALHO {"position":"3275,250","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>
+PARABENS, VOCÊ FOI DEMITIDO
+
+[[VOLTAR PARA O INICIO|MENU INICIAR]]
+
+</p>
+</div>
+</body>
+
+
+:: SORTE {"position":"2300,400","size":"100,100"}
+<<set $roll to random(1, 21)>>
+<div class="karma-status">
+<p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>
+VOCÊ ENTRA NA LOTÉRICA, PEGA UM BILHETE E FAZ SEU JOGO.
+ESCOLHA 6 NUMEROS DE 1 A 20. SEPARE-OS POR VÍRGULA
+<div class="text-container">
+    <form action="resultado">
+        <input type="text" name="inputText" class="text-input" placeholder="Digite aqui" required>
+        <<link "JOGAR">>
+<<if $roll ==1 && $roll == 21>><<goto "MILIONÁRIO">>
+<<else>><<goto "NÃO FOI DESSA VEZ">>
+<</if>>
+<</link>>
+</form>
+</div>
+</p>
+</div>
+</body>
+
+
+
+
+:: TENTAR PEGAR UM ÔNIBUS {"position":"2200,200","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>
+VOCÊ VAI ATÉ O PONTO E ESPERA POR ALGUNS MINUTOS.
+O ÔNIBUS CHEGA, PORÉM NADA GARANTE QUE VOCÊ IRÁ CONSEGUIR CHEGAR A TEMPO NO TRABALHO AINDA!
+<div id="dialogo">
+<<link "ENTRAR">>
+<<replace "#dialogo">>
+<<if $karma < 2>>
+O ONIBUS PEGA UM TRÂNSITO FODIDO E VOCÊ NÃO CHEGA A TEMPO NO [[TRABALHO|SER DEMITIDO DO TRABALHO]], SE VOCÊ TIVESSE SAÍDO MAIS CEDO...
+<<else>>
+VOCÊ CHEGA NO TRABALHO A TEMPO PORÉM TODOS TE OLHAM ESTRANHO POR ESTAR VESTINDO ROUPAS NÃO HABITUAIS PARA O AMBIENTE.
+INCRIVELMENTE VOCÊ AINDA CONSEGUE MANTER O SEU [[TRABALHO|CHEGA AO TRABALHO NORMAL]]!
+<</if>>
+<</replace>>
+<</link>>
+[[SEGUIR PARA CASA]]
+</div>
+</p>
+</div>
+</body>
+
+
+:: VIATURAS {"position":"1700,550","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>A ALTA VELOCIDADE CHAMA A ATENÇÃO DE UMA VIATURA QUE ESTAVA ESTACIONADA NA AVENIDA. A POLÍCIA TENTA UMA ABORDAGEM PORÉM O MOTOQUEIRO EMPREENDE FUGA!
+
+<div id="dado">
+        <<link "PULAR DA MOTO (10% DE CHANCE DE MORRER)">>
+            <<set $roll to random (1, 20)>>
+            <<replace "#dado">>
+                <<if $roll < 2>>
+                    O PILOTO ESTAVA MUITO RÁPIDO. VOCÊ TENTA PULAR DA MOTO EM UM ATO DE DESESPERO, MAS ACABA CAINDO E BATENDO A CABEÇA NA CALÇADA. VOCÊ PERDE MUITO SANGUE E O PIOR [[ACONTECE|MORTE]]...
+                <<else>>
+                    VOCÊ PULA DA MOTO E TEM FERIMENTOS LEVES. 
+                    AINDA TE CONSIDERAM UM SUSPEITO E LOGO LOGO ESTARÃO ATRÁS DE VOCÊ TAMBÉM! É MELHOR TENTAR CHEGAR EM CASA ANTES QUE SEJA PEGO SÓ QUE VOCÊ NÃO SE LEMBRA MUITO BEM O [[CAMINHO|CAMINHO DE VOLTA PARA PRESO]] DE VOLTA!
+                    <</if>>
+                    <</replace>>
+          <</link>>
+          <<link "FICAR (75% DE CHANCE DE VOCÊ IR PARA DELEGACIA)">>
+          <<set $roll to random (1, 20)>>
+            <<replace "#dado">>
+                <<if $roll < 15>>
+                    O MOTOQUEIRO NÃO CONSEGUE EXECUTAR BEM A FUGA E VOCÊS SÃO PEGOS! ELE TE ACUSA COMO CUMPLICE E AMBOS ENCAMINHADOS PARA A [[DELEGACIA|ARCO DA PRISÃO]]!
+                <<else>>
+                    O MOTOQUEIRO CONSEGUE DAR A FUGA E DESPISTAR OS POLICIAIS!
+                    ELE CHEGA AO SEU [[DESTINO|RUA DE CASA]].
+                    <</if>>
+                    <</replace>>
+                    <</link>>
+                    </div>
+</p>
+</div>
+</body>
+
+
+:: VOCÊ BEBE MAIS {"position":"700,100","size":"100,100"}
+<<set $karma = $karma -1>>
+<div class="cerveja-image"></div>
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>VOCÊ QUER SE SOLTAR UM POUCO E CONTINUAR A AFOGAR AS MAGOAS NA BEBIDA, MAS AINDA ESTÁ UM POUCO CONSCIENTE E SE SENTE SOZINHO.
+
+SUA BEBIDA ACABOU.
+
+[[IR EMBORA]]
+[[COMPRAR MAIS]]
+</p>
+
+</div>
+</body>
+
+
+:: VOLTAR PRA CASA {"position":"1200,525","size":"100,100"}
+<div class="karma-status">
+    <p>KARMA: <span id="karma-value"><<print $karma>></span></p>
+</div>
+<body>
+<div class="bottom">
+<p>
+
+VOCÊ NÃO SE LEMBRA MUITO BEM O CAMINHO, ENTÃO VAI TER QUE SER NA SORTE CAMPEÃO. ESCOLHA UMA DIREÇÃO:
+
+<div id="dialogo">
+    <<link "DIREITA">>
+        <<replace "#dialogo">>
+            Você decidiu ir para a direita.
+            <div id="dialogo1">
+                <<link "DIREITA">>
+                    <<replace "#dialogo1">>
+                        <div id="dialogo2">
+                            <<link "DIREITA">>
+                                <<replace "#dialogo2">>
+                                    VOCÊ ENCONTRA O CAMINHO CERTO E CHEGA EM [[CASA|RUA DE CASA]]
+                                <</replace>>
+                            <</link>>
+                        </div>
+                    <</replace>>
+                <</link>>
+                <<link "ESQUERDA">>
+                    <<replace "#dialogo1">>
+                        <div id="dialogo2">
+                            <<link "ESQUERDA">>
+                                <<replace "#dialogo2">>
+                                    <div id="dialogo3">
+                                        <<link "ESQUERDA">>
+                                            <<replace "#dialogo3">>
+                                                Não faço ideia aonde eu estou...
+                                                [[DESISTIR|RUAS ESCURAS]]
+                                                [[CONTINUAR TENTANDO|VOLTAR PRA CASA]]
+                                            <</replace>>
+                                        <</link>>
+                                        <<link "DIREITA">>
+                                            <<replace "#dialogo3">>
+                                                Eu acho que estou perto...
+                                                [[DESISTIR|RUAS ESCURAS]]
+                                                [[CONTINUAR TENTANDO|VOLTAR PRA CASA]]
+                                            <</replace>>
+                                        <</link>>
+                                    </div>
+                                <</replace>>
+                            <</link>>
+                            <<link "DIREITA">>
+                                <<replace "#dialogo2">>
+                                    <div id="dialogo3">
+                                        <<link "ESQUERDA">>
+                                            <<replace "#dialogo3">>
+                                                Não faço ideia aonde eu estou...
+                                                [[DESISTIR|RUAS ESCURAS]]
+                                                [[CONTINUAR TENTANDO|VOLTAR PRA CASA]]
+                                            <</replace>>
+                                        <</link>>
+                                        <<link "DIREITA">>
+                                            <<replace "#dialogo3">>
+                                                Eu acho que estou perto...
+                                                [[DESISTIR|RUAS ESCURAS]]
+                                                [[CONTINUAR TENTANDO|VOLTAR PRA CASA]]
+                                            <</replace>>
+                                        <</link>>
+                                    </div>
+                                <</replace>>
+                            <</link>>
+                        </div>
+                    <</replace>>
+                <</link>>
+            </div>
+        <</replace>>
+    <</link>>
+    <<link "ESQUERDA">>
+        <<replace "#dialogo">>
+            Você decidiu ir para a esquerda.
+            <div id="dialogo1">
+                <<link "ESQUERDA">>
+                    <<replace "#dialogo1">>
+                        <div id="dialogo2">
+                            <<link "ESQUERDA">>
+                                <<replace "#dialogo2">>
+                                    <div id="dialogo3">
+                                        <<link "ESQUERDA">>
+                                            <<replace "#dialogo3">>
+                                                Não faço ideia aonde eu estou...
+                                                [[DESISTIR|RUAS ESCURAS]]
+                                                [[CONTINUAR TENTANDO|VOLTAR PRA CASA]]
+                                            <</replace>>
+                                        <</link>>
+                                        <<link "DIREITA">>
+                                            <<replace "#dialogo3">>
+                                                Eu acho que estou perto...
+                                                [[DESISTIR|RUAS ESCURAS]]
+                                                [[CONTINUAR TENTANDO|VOLTAR PRA CASA]]
+                                            <</replace>>
+                                        <</link>>
+                                    </div>
+                                <</replace>>
+                            <</link>>
+                            <<link "DIREITA">>
+                                <<replace "#dialogo2">>
+                                    <div id="dialogo3">
+                                        <<link "ESQUERDA">>
+                                            <<replace "#dialogo3">>
+                                                Não faço ideia aonde eu estou...
+                                                [[DESISTIR|RUAS ESCURAS]]
+                                                [[CONTINUAR TENTANDO|VOLTAR PRA CASA]]
+                                            <</replace>>
+                                        <</link>>
+                                        <<link "DIREITA">>
+                                            <<replace "#dialogo3">>
+                                                Eu acho que estou perto...
+                                                [[DESISTIR|RUAS ESCURAS]]
+                                                [[CONTINUAR TENTANDO|VOLTAR PRA CASA]]
+                                            <</replace>>
+                                        <</link>>
+                                    </div>
+                                <</replace>>
+                            <</link>>
+                        </div>
+                    <</replace>>
+                <</link>>
+                <<link "DIREITA">>
+                    <<replace "#dialogo1">>
+                        <div id="dialogo2">
+                            <<link "ESQUERDA">>
+                                <<replace "#dialogo2">>
+                                    <div id="dialogo3">
+                                        <<link "ESQUERDA">>
+                                            <<replace "#dialogo3">>
+                                                Não faço ideia aonde eu estou...
+                                                [[DESISTIR|RUAS ESCURAS]]
+                                                [[CONTINUAR TENTANDO|VOLTAR PRA CASA]]
+                                            <</replace>>
+                                        <</link>>
+                                        <<link "DIREITA">>
+                                            <<replace "#dialogo3">>
+                                                Eu acho que estou perto...
+                                                [[DESISTIR|RUAS ESCURAS]]
+                                                [[CONTINUAR TENTANDO|VOLTAR PRA CASA]]
+                                            <</replace>>
+                                        <</link>>
+                                    </div>
+                                <</replace>>
+                            <</link>>
+                            <<link "DIREITA">>
+                                <<replace "#dialogo2">>
+                                    <div id="dialogo3">
+                                        <<link "ESQUERDA">>
+                                            <<replace "#dialogo3">>
+                                                Não faço ideia aonde eu estou...
+                                                [[DESISTIR|RUAS ESCURAS]]
+                                                [[CONTINUAR TENTANDO|VOLTAR PRA CASA]]
+                                            <</replace>>
+                                        <</link>>
+                                        <<link "DIREITA">>
+                                            <<replace "#dialogo3">>
+                                                Eu acho que estou perto...
+                                                [[DESISTIR|RUAS ESCURAS]]
+                                                [[CONTINUAR TENTANDO|VOLTAR PRA CASA]]
+                                            <</replace>>
+                                        <</link>>
+                                    </div>
+                                <</replace>>
+                            <</link>>
+                        </div>
+                    <</replace>>
+                <</link>>
+            </div>
+        <</replace>>
+    <</link>>
+</div>
+
+
+</p>
+</div>
+</body>
+
+
+:: StoryStylesheet [stylesheet]
+<style>
+@import url('https://www.dafont.com/pt/pricedown.font');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Pricedown', sans-serif;
+  
+}
+
+.first-passage {
+  background-image: url('https://i.pinimg.com/736x/2f/d4/46/2fd446e5e4f894588de0c31fbc87261c.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+#start-menu {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  z-index: 1000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+#start-menu h1 {
+  margin: 0 0 20px;
+  font-size: 90px;
+  background: linear-gradient(to right, #eeeeee, #073763);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0);
+}
+
+#menu-buttons a {
+  display: inline;
+  margin: 20;
+  padding: 10px;
+  background-color: linear-gradient(to right, #eeeeee, #073763);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: white;;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 50px;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.bottom {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: black;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: auto;
+  max-width: calc(100% - 40px);
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+.bottom p {
+  margin: 5px;
+  color: white;
+  font-size: 20px;
+}
+
+.karma-status {
+  position: fixed;
+  top: 10px;
+  left: 40px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.karma-status p {
+  margin: 0 0 5px;
+  color: white;
+  font-size: 25px;
+  
+}
+
+#ui-bar {
+    display: none;
+}
+
+
+
+</style>
